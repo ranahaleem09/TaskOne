@@ -30,8 +30,8 @@ GetPostsIdUrl: string =
   GetUsersIdUrl: string =
   'https://jsonplaceholder.typicode.com/users/:';
 
-  GetPostofUser: string= 'https://jsonplaceholder.typicode.com/posts?userId=1';
-  GetTodoofUser: string= 'https://jsonplaceholder.typicode.com/todoss?userId=1';
+  GetPostofUser: string= 'https://jsonplaceholder.typicode.com/posts?userId=';
+  GetTodoofUser: string= 'https://jsonplaceholder.typicode.com/todos?userId=';
   constructor(private http: HttpClient) { }
   
   getTodos():Observable<Todos[]> {
@@ -52,29 +52,7 @@ GetPostsIdUrl: string =
     return this.http.post < Todos > (this.GetTodosUrl, todo, httpOptions);
   }
 
-  // getPost(id) {
-  //   return this.http.get(`/api/posts/${id}`);
-  // }
-  // getPosts() {
-  //    return this.http.get(`${this.GetPostsUrl}`);
-  // }
-  // getPostOfUser(id) {
-  //   return this.http.get(`/api/posts?userId=${id}`);
-  // }
-
   
-  // getUsers() {
-    
-  //       return this.http.get(`${this.GetUsersUrl}`);
-  //     }
-  // getUser(id) {
-  //       return this.http.get(`${this.GetUsersIdUrl}`);
-  //     }
-
-
-  // getPost(id) {
-  //   return this.http.get(`/api/posts/${id}`);
-  // }
   getPosts() {
     return this.http.get(`${this.GetPostsUrl}`);
   }
@@ -86,13 +64,10 @@ GetPostsIdUrl: string =
     return this.http.get(`${this.GetUsersIdUrl}${id}`);
   }
   getPostOfUser(id) {
-    return this.http.get(`/api/posts?userId=${id}`);
+    return this.http.get(`${this.GetPostofUser}${id}`);
   }
   getTodoOfUser(id) {
-    return this.http.get(`/api/todos?userId=${id}`);
-  }
-  getTodo(id) {
-    return this.http.get(`/api/posts/${id}`);
+    return this.http.get(`${this.GetTodoofUser}${id}`);
   }
 
 }

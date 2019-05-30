@@ -12,9 +12,69 @@ import { angularMath } from 'angular-ts-math';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  user;
+  posts: any;
+  todos:any;
+  postDetails;
+  id=1;
+  
+  constructor(private ProfileService: MainService) { }
+  
+    ngOnInit() {
 
-  ngOnInit() {
-  }
+      this.DisplayUser();
+      this.Post();
+      this.Todo();
+      
+  
+  
+    }
+    DisplayUser() {
+      this.ProfileService.getUser(1).subscribe(users => {
+        this.user = users;
+        this.getUsersPost();
+        console.log(this.user);
+        
+      })
+    }
+  
+    Todo() {
+      this.ProfileService.getTodoOfUser(1).subscribe(todos => {
+          this.todos = todos;
+          this.DisplayUser();
+          
+        }
+  
+      )
+  
+    }
+  
+    Post() {
+      this.ProfileService.getPostOfUser(1).subscribe(posts => {
+          this.posts = posts;
+          this.DisplayUser();
+        
+  
+        }
+  
+      )
+  
+    }
+  
+    
+    getUsersPost() {
+      for (let i = 0; i < this.posts.length; i++) {
+          if (this.posts[i].userId == this.user.id) {
+            this.posts[i].username = this.user.username;
+            this.posts[i].name= this.user.name;
+            const randomNumber = angularMath.getIntegerRandomRange(1, 7);
+            this.posts[i].img  = "https://mdbootstrap.com/img/Photos/Avatars/img%20(" +randomNumber +").jpg";
+          }
+        
+      }
+      console.log(this.posts);
+  
+    }
+  
 
 }

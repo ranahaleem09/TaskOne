@@ -19,15 +19,15 @@ export class PostComponent implements OnInit {
   constructor(private postService: MainService, public modal: NgbModal) { }
 
   ngOnInit() {
-    this.showPosts();
-    $('#myModal').modal('show');
+   this.DisplayPosts();
+        $('#myModal').modal('show');
   }
 
-  showPosts() {
+  DisplayPosts() {
     this.postService.getPosts().subscribe(posts => {
         this.posts = posts;
         console.log(this.posts);
-        this.showUsers();
+        this.DisplayUsers();
        
 
       }
@@ -36,16 +36,16 @@ export class PostComponent implements OnInit {
 
   }
 
-  showUsers() {
+  DisplayUsers() {
     this.postService.getUsers().subscribe(users => {
       this.users = users;
-      this.getUserOfThePost();
+      this.UsersPost();
     })
   }
 
 
 
-  getUserOfThePost() {
+  UsersPost() {
     for (let i = 0; i < this.posts.length; i++) {
       for (let j = 0; j < this.users.length; j++) {
         if (this.posts[i].userId == this.users[j].id) {
@@ -57,12 +57,11 @@ export class PostComponent implements OnInit {
         }
       }
     }
-    console.log(this.posts);
 
   }
 
 
-  OpenUserModal(id){
+  Modal(id){
     console.log(id);
     
         this.posts.filter(post => {
