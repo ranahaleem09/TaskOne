@@ -1,0 +1,16 @@
+.header {
+  /* background: rgb(2,0,36); */
+  margin-bottom: 20px;
+  margin-top:5px;
+    text-align: center;
+    padding: 10px;
+    background: rgb(4, 1, 54);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(84,9,121,1) 18%, rgba(57,75,164,1) 84%, rgba(0,212,255,1) 100%);
+  }
+  
+  .header h1 {
+ 
+    text-decoration: none;
+    color: rgb(253, 253, 253);
+    /* color: linear-gradient(90deg, rgba(0,36,15,1) 0%, rgb(124, 20, 20) 22%, rgba(57,164,121,1) 84%, rgba(0,212,255,1) 100%); */
+  }

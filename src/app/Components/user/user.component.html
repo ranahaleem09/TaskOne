@@ -1,0 +1,171 @@
+<!-- <div class="container">
+    <table class="table table-bordered table-dark ">
+        <thead class="thead-dark">
+          <tr>
+
+            <th scope="col">UserName</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+
+              <tr *ngFor="let user of users">
+
+                  <td (click)="UserModal(user.id);">{{user.username}}</td>
+                  <td  (click)="UserModal(user.id);">{{user.name}}</td>
+                  <td (click)="UserModal(user.id);" >{{user.email}}</td>
+                </tr>
+
+
+
+        </tbody>
+      </table>
+</div>
+
+<!-- Button trigger modal -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title  "  id="exampleModalLabel">
+             {{userInformation?.name}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-b="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+              <div class="col-6" >
+                <b> Name :</b>
+              </div>
+              <div class="col-6">
+                    {{userInformation?.name}}
+              </div>
+
+              <div class="col-6">
+                
+                    <b>Username: </b>
+                
+      
+              </div>
+              <div class="col-6">
+                  {{userInformation?.username}}
+              </div>
+
+              <div class="col-6">
+                <b >Company Name :</b>
+              </div>
+              <div class="col-6">
+                  {{userInformation?.company.name}}
+              </div>
+
+              <div class="col-6">
+                <b >
+                  Phone :
+                </b>
+              </div>
+              <div class="col-6">
+                  {{userInformation?.phone}}
+              </div>
+
+              <div class="col-6">
+                <b >
+                  WEBSITE :
+                </b>
+              </div>
+              <div class="col-6">
+                  {{userInformation?.website}}
+              </div>
+
+              <div class="col-6">
+                <b >Email : </b>
+              </div>
+              <div class="col-6">
+                  {{userInformation?.email}}
+              </div>
+
+
+
+              <div class="col-6">
+                <b >City: </b>
+              </div>
+              <div class="col-6">
+                  {{userInformation?.address.city}}
+              </div>
+
+              <div class="col-6">
+                  <b >Street : </b>
+                </div>
+                <div class="col-6">
+                    {{userInformation?.address.street}}
+
+                </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         
+        </div>
+      </div>
+    </div>
+  </div> 
+
+
+  <!-- Grid row -->
+<div class="row">
+    
+      <!-- Grid column -->
+      
+    
+     
+    
+      <!-- Grid column -->
+      <div class="col-lg-4 col-md-6 " *ngFor="let user of users">
+    
+        <!--Card Regular-->
+        <div class="card card-cascade" (click)="UserModal(user.id);">
+    
+          <!--Card image-->
+          <div class="view view-cascade overlay">
+            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(11).jpg" class="card-img-top" alt="normal">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--/.Card image-->
+    
+          <!--Card content-->
+          <div class="card-body card-body-cascade text-center">
+            <!--Title-->
+            <h4 class="card-title" (click)="UserModal(user.id);"><strong>{{user.name}}</strong></h4>
+            <h5>@ {{user.username}}r</h5>
+    
+            <p class="card-text">
+
+            <strong>Address:</strong>  {{user.address.street}} <br>
+            <strong> Phone:</strong> {{user.phone}} <br>
+            <strong> Email:</strong> {{user.email}}
+            </p>
+    
+            <!--Facebook-->
+            <a type="button" class="btn-floating btn-small btn-fb"><i class="fab fa-facebook-f"></i></a>
+            <!--Twitter-->
+            <a type="button" class="btn-floating btn-small btn-tw"><i class="fab fa-twitter"></i></a>
+            <!--Google +-->
+            <a type="button" class="btn-floating btn-small btn-dribbble"><i class="fab fa-dribbble"></i></a>
+    
+          </div>
+          <!--/.Card content-->
+    
+        </div>
+        <!--/.Card Regular-->
+    
+      </div>
+      <!-- Grid column -->
+    
+    </div>
+    <!-- Grid row -->

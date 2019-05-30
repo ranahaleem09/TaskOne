@@ -1,0 +1,16 @@
+<div class="container ">
+<div [ngClass]="UpdateTodos()">
+    <p >
+      <input class="todo"
+        (change)="onToggle(todo)"
+        type="checkbox"
+        id="{{ todo.id }}"
+        [checked]="todo.completed"
+      />
+      <label style="padding-left:10px;" for="{{ todo.id }}">
+        {{ todo.title }}
+      </label>
+      <button (click)="onDelete(todo)" class="del">delete</button>
+    </p>
+  </div>
+</div>

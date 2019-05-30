@@ -1,0 +1,6 @@
+<app-header-todos></app-header-todos>
+<app-add-todo (putTodo)= "addTodo($event)"> </app-add-todo>
+<app-a-todo *ngFor = "let todo of todos" 
+[todo]="todo"
+(TodoRemove) = "RemoveTodo($event)"
+></app-a-todo>
